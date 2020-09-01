@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import Header from './components/Header';
-import Home from './routes/Home';
-import GlobalStyle from './styles/GlobalStyle';
-import { lightTheme, darkTheme } from './styles/themes';
+import Home from 'routes/Home';
+import Profile from 'routes/Profile';
+import Search from 'routes/Search';
+import GlobalStyle from 'styles/GlobalStyle';
+import { lightTheme, darkTheme } from 'styles/themes';
+import Header from 'components/Header';
 
 type ThemeType = 'light' | 'dark';
 
@@ -26,6 +28,8 @@ const App: React.FunctionComponent = () => {
         <main>
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/search" component={Search} />
+            <Route path="/profile" component={Profile} />
           </Switch>
         </main>
       </Router>

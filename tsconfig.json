@@ -18,7 +18,8 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "typeRoots": ["./types"]
   },
   "include": [
     "src"

@@ -1,4 +1,4 @@
-export interface ITheme {
+export interface CustomThemeInterface {
   background: {
     default: string;
   };
@@ -9,7 +9,7 @@ export interface ITheme {
   };
 }
 
-const lightTheme: ITheme = {
+const lightTheme: CustomThemeInterface = {
   background: {
     default: '#fafafa',
   },
@@ -20,7 +20,7 @@ const lightTheme: ITheme = {
   },
 };
 
-const darkTheme: ITheme = {
+const darkTheme: CustomThemeInterface = {
   background: {
     default: '#303030',
   },

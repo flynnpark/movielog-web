@@ -1,8 +1,7 @@
-import { createGlobalStyle, ThemeProps } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { reset } from 'styled-reset';
-import { ITheme } from './themes';
 
-const GlobalStyle = createGlobalStyle<ThemeProps<ITheme>>`
+const GlobalStyle = createGlobalStyle`
   ${reset}
 
   body {
