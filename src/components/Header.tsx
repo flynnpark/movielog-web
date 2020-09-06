@@ -6,7 +6,7 @@ const HeaderContainer = styled.header`
   height: 64px;
   padding: 0 50px;
   line-height: 64px;
-  background: ${(props) => props.theme.background.paper};
+  background: ${(props) => props.theme.background};
   box-shadow: ${(props) => props.theme.shadow};
   display: flex;
   flex-direction: row;
@@ -21,7 +21,9 @@ const Logo = styled.h1`
   font-size: 32px;
 `;
 
-const MenuContainer = styled.div``;
+const RightMenuContainer = styled.div`
+  flex: 1;
+`;
 
 const Menu = styled(Link)`
   text-decoration: none;
@@ -29,16 +31,21 @@ const Menu = styled(Link)`
   padding: 0 20px;
 `;
 
+const LeftMenuContainer = styled.div``;
+
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <LogoContainer>
         <Logo>Movie.log</Logo>
       </LogoContainer>
-      <MenuContainer>
+      <RightMenuContainer>
         <Menu to="/search">Search</Menu>
         <Menu to="/profile">Profile</Menu>
-      </MenuContainer>
+      </RightMenuContainer>
+      <LeftMenuContainer>
+        <Menu to="/login">Login</Menu>
+      </LeftMenuContainer>
     </HeaderContainer>
   );
 };

@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
 
   body {
-    background: ${(props) => props.theme.background.default};
+    background: ${(props) => props.theme.background};
     color: ${({ theme }) => theme.typography.primary};
     transition: all 0.50s linear;
   }

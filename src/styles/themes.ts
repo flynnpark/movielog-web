@@ -1,8 +1,31 @@
+type NeutralColor = (percentage: number) => string;
+
+export const black: NeutralColor = (percentage) =>
+  percentage < 100 ? `rgba(0, 0, 0, 0.${percentage})` : `rgb(0, 0, 0)`;
+
+export const white: NeutralColor = (percentage) =>
+  percentage < 100
+    ? `rgba(255, 255, 255, 0.${percentage})`
+    : `rgb(255, 255, 255)`;
+
+export const gray = [
+  '#ffffff',
+  '#fafafa',
+  '#f5f5f5',
+  '#f0f0f0',
+  '#d9d9d9',
+  '#bfbfbf',
+  '#8c8c8c',
+  '#595959',
+  '#434343',
+  '#262626',
+  '#1f1f1f',
+  '#141414',
+  '#000000',
+];
+
 export interface CustomThemeInterface {
-  background: {
-    default: string;
-    paper: string;
-  };
+  background: string;
   shadow: string;
   typography: {
     primary: string;
@@ -12,30 +35,22 @@ export interface CustomThemeInterface {
 }
 
 const lightTheme: CustomThemeInterface = {
-  background: {
-    default: '#fafafa',
-    paper: '#ffffff',
-  },
-  shadow:
-    '0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)',
+  background: gray[1],
+  shadow: 'rgb(240, 241, 242) 0px 2px 8px 0px ',
   typography: {
-    primary: 'rgba(0, 0, 0, 0.87)',
-    secondary: 'rgba(0, 0, 0, 0.54)',
-    disabled: 'rgba(0, 0, 0, 0.38)',
+    primary: black(85),
+    secondary: black(45),
+    disabled: black(25),
   },
 };
 
 const darkTheme: CustomThemeInterface = {
-  background: {
-    default: '#303030',
-    paper: '#424242',
-  },
-  shadow:
-    '0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)',
+  background: gray[11],
+  shadow: 'rgba(0, 0, 0, 0.65) 0px 2px 8px 0px',
   typography: {
-    primary: '#fff',
-    secondary: 'rgba(255, 255, 255, 0.7)',
-    disabled: 'rgba(255, 255, 255, 0.5)',
+    primary: white(85),
+    secondary: white(65),
+    disabled: white(35),
   },
 };
 
