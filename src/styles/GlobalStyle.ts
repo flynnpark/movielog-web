@@ -7,14 +7,11 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: ${(props) => props.theme.background};
     color: ${({ theme }) => theme.typography.primary};
-    transition: all 0.50s linear;
   }
 
   main {
     padding: 0 50px;
-    flex: auto;
-    min-height: 0;
-    box-sizing: border-box;
+    padding-top: 40px;
   }
 `;
 

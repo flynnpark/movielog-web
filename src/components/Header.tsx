@@ -18,7 +18,8 @@ const LogoContainer = styled.div`
 `;
 
 const Logo = styled.h1`
-  font-size: 32px;
+  font-size: 18px;
+  font-weight: 600;
 `;
 
 const RightMenuContainer = styled.div`
@@ -37,7 +38,9 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <LogoContainer>
-        <Logo>Movie.log</Logo>
+        <Link to="/">
+          <Logo>Movie.log</Logo>
+        </Link>
       </LogoContainer>
       <RightMenuContainer>
         <Menu to="/search">Search</Menu>

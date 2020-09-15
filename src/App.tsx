@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import NotFound from 'routes/404';
 import Home from 'routes/Home';
 import Profile from 'routes/Profile';
 import Search from 'routes/Search';
@@ -30,6 +31,7 @@ const App: React.FunctionComponent = () => {
             <Route path="/" exact component={Home} />
             <Route path="/search" component={Search} />
             <Route path="/profile" component={Profile} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </main>
       </Router>
