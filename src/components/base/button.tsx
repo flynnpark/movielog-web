@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { tuple } from 'utils/type';
 
 const ButtonTypes = tuple(
@@ -20,18 +20,27 @@ interface BaseButtonProps {
   type?: ButtonType;
   shape?: ButtonShape;
   htmlType?: ButtonHTMLType;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 export type ButtonProps = Partial<BaseButtonProps>;
 
-const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
-  const { loading, type, shape, htmlType, ...rest } = props;
+const Button: React.FC<ButtonProps> = (props) => {
+  const { children, loading, type, shape, htmlType, ...rest } = props;
 
-  const [innerLoading, setLoading] = useState<boolean>(!!loading);
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const { onClick } = props;
+    if (loading) {
+      return;
+    }
+    if (onClick) {
+      onClick(e);
+    }
+  };
 
   return (
-    <button type={htmlType} {...rest}>
-      Button
+    <button type={htmlType} onClick={handleClick} {...rest}>
+      {children}
     </button>
   );
 };
