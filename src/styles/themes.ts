@@ -1,3 +1,5 @@
+import * as size from './size';
+
 type NeutralColor = (percentage: number) => string;
 
 export const black: NeutralColor = (percentage) =>
@@ -24,7 +26,15 @@ export const gray = [
   '#000000',
 ];
 
-export interface CustomThemeInterface {
+interface BaseThemeInterface {
+  size: typeof size;
+}
+
+const baseTheme = {
+  size,
+};
+
+export interface CustomThemeInterface extends BaseThemeInterface {
   background: string;
   shadow: string;
   typography: {
@@ -35,6 +45,7 @@ export interface CustomThemeInterface {
 }
 
 const lightTheme: CustomThemeInterface = {
+  ...baseTheme,
   background: gray[1],
   shadow: 'rgb(240, 241, 242) 0px 2px 8px 0px ',
   typography: {
@@ -45,6 +56,7 @@ const lightTheme: CustomThemeInterface = {
 };
 
 const darkTheme: CustomThemeInterface = {
+  ...baseTheme,
   background: gray[11],
   shadow: 'rgba(0, 0, 0, 0.65) 0px 2px 8px 0px',
   typography: {
