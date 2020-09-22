@@ -1,3 +1,4 @@
+import { hsv } from 'utils/style';
 import * as size from './size';
 
 type NeutralColor = (percentage: number) => string;
@@ -42,6 +43,14 @@ export interface CustomThemeInterface extends BaseThemeInterface {
     secondary: string;
     disabled: string;
   };
+  border: {
+    width: number;
+    radius: number;
+    style: string;
+    color: {
+      base: string;
+    };
+  };
 }
 
 const lightTheme: CustomThemeInterface = {
@@ -53,16 +62,28 @@ const lightTheme: CustomThemeInterface = {
     secondary: black(45),
     disabled: black(25),
   },
+  border: {
+    width: 1,
+    radius: 2,
+    style: 'solid',
+    color: {
+      base: hsv(0, 0, 0.85),
+    },
+  },
 };
 
 const darkTheme: CustomThemeInterface = {
-  ...baseTheme,
+  ...lightTheme,
   background: gray[11],
   shadow: 'rgba(0, 0, 0, 0.65) 0px 2px 8px 0px',
   typography: {
     primary: white(85),
     secondary: white(65),
     disabled: white(35),
+  },
+  border: {
+    ...lightTheme.border,
+    color: { ...lightTheme.border.color, base: '#434343' },
   },
 };
 
