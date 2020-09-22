@@ -1,5 +1,4 @@
 import { hsv } from 'utils/style';
-import * as size from './size';
 
 type NeutralColor = (percentage: number) => string;
 
@@ -27,15 +26,14 @@ export const gray = [
   '#000000',
 ];
 
-interface BaseThemeInterface {
-  size: typeof size;
-}
-
-const baseTheme = {
-  size,
+const borderBase = {
+  radius: 2,
+  width: 1,
+  style: 'solid',
+  color: hsv(0, 0, 0.85),
 };
 
-export interface CustomThemeInterface extends BaseThemeInterface {
+export interface CustomThemeInterface {
   background: string;
   shadow: string;
   typography: {
@@ -44,17 +42,11 @@ export interface CustomThemeInterface extends BaseThemeInterface {
     disabled: string;
   };
   border: {
-    width: number;
-    radius: number;
-    style: string;
-    color: {
-      base: string;
-    };
+    default: typeof borderBase;
   };
 }
 
 const lightTheme: CustomThemeInterface = {
-  ...baseTheme,
   background: gray[1],
   shadow: 'rgb(240, 241, 242) 0px 2px 8px 0px ',
   typography: {
@@ -62,14 +54,7 @@ const lightTheme: CustomThemeInterface = {
     secondary: black(45),
     disabled: black(25),
   },
-  border: {
-    width: 1,
-    radius: 2,
-    style: 'solid',
-    color: {
-      base: hsv(0, 0, 0.85),
-    },
-  },
+  border: { default: borderBase },
 };
 
 const darkTheme: CustomThemeInterface = {
@@ -82,8 +67,10 @@ const darkTheme: CustomThemeInterface = {
     disabled: white(35),
   },
   border: {
-    ...lightTheme.border,
-    color: { ...lightTheme.border.color, base: '#434343' },
+    default: {
+      ...borderBase,
+      color: '#434343',
+    },
   },
 };
 

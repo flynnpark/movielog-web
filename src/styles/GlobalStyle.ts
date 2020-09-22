@@ -7,8 +7,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: ${(props) => props.theme.background};
     color: ${({ theme }) => theme.typography.primary};
-    font-size: ${({ theme }) => theme.size.font.base}px;
-    line-height: ${({ theme }) => theme.size.font.lineHeightBase};
+    font-size: 14px;
+    line-height: 1.5715;
   }
 
   main {

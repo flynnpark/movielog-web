@@ -2,16 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { tuple } from 'utils/type';
 
-const SizeTypes = tuple('small', 'middle', 'largs');
-export type SizeType = typeof SizeTypes[number];
-const ButtonTypes = tuple(
-  'default',
-  'primary',
-  'ghost',
-  'dashed',
-  'link',
-  'text'
-);
+const ButtonTypes = tuple('default', 'primary', 'link');
 export type ButtonType = typeof ButtonTypes[number];
 // const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 // type ButtonShape = typeof ButtonShapes[number];
@@ -36,21 +27,11 @@ type StyledButtonProps = {
 export type ButtonProps = Partial<NativeButtonProps>;
 
 const BaseStyledButton = styled.button<StyledButtonProps>`
-  height: ${({ theme }) => theme.size.height.base}px;
-  padding: ${({ theme }) => {
-    const { max, round } = Math;
-    const paddingVertical = max(
-      round(((theme.size.height.base - theme.size.font.base) / 2) * 10) / 10 -
-        theme.border.width,
-      0
-    );
-    const paddingHorizontal = theme.size.padding.md - 1;
-    return `${paddingVertical}px ${paddingHorizontal}px`;
-  }};
-  border-width: ${({ theme }) => theme.border.width}px;
-  border-radius: ${({ theme }) => theme.border.radius}px;
-  border-style: ${({ theme }) => theme.border.style};
-  border-color: ${({ theme }) => theme.border.color.base};
+  height: 32px;
+  padding: 2px 15px;
+  border-radius: 2px;
+  border: 1px solid ${({ theme }) => theme.border.default.color};
+  background-color: #fff;
 `;
 
 const Button: React.FC<ButtonProps> = (props) => {
