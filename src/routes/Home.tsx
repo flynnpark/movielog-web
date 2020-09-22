@@ -1,12 +1,7 @@
 import React from 'react';
-import Button from 'components/base/button';
 
 const Home: React.FC = () => {
-  return (
-    <div>
-      Home <Button>Button</Button>
-    </div>
-  );
+  return <div>Home</div>;
 };
 
 export default Home;

@@ -1,5 +1,6 @@
+import { Menu } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
@@ -12,43 +13,34 @@ const HeaderContainer = styled.header`
   flex-direction: row;
 `;
 
+const NavigationBar = styled.nav`
+  display: flex;
+  flex-direction: row;
+`;
+
 const LogoContainer = styled.div`
   align-items: center;
   margin-right: 32px;
 `;
 
-const Logo = styled.h1`
-  font-size: 18px;
-  font-weight: 600;
+const NavUl = styled.ul`
+  display: flex;
+  flex-direction: row;
 `;
-
-const RightMenuContainer = styled.div`
-  flex: 1;
-`;
-
-const Menu = styled(Link)`
-  text-decoration: none;
-  color: ${(props) => props.theme.typography.primary};
-  padding: 0 20px;
-`;
-
-const LeftMenuContainer = styled.div``;
 
 const Header: React.FC = () => {
+  const history = useHistory();
+
   return (
     <HeaderContainer>
-      <LogoContainer>
-        <Link to="/">
-          <Logo>Movie.log</Logo>
-        </Link>
-      </LogoContainer>
-      <RightMenuContainer>
-        <Menu to="/search">Search</Menu>
-        <Menu to="/profile">Profile</Menu>
-      </RightMenuContainer>
-      <LeftMenuContainer>
-        <Menu to="/login">Login</Menu>
-      </LeftMenuContainer>
+      <NavigationBar>
+        <LogoContainer>Logo</LogoContainer>
+        <NavUl>
+          <li>검색</li>
+          <li>로그인</li>
+          <li>회원가입</li>
+        </NavUl>
+      </NavigationBar>
     </HeaderContainer>
   );
 };

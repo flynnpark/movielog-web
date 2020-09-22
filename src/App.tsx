@@ -14,12 +14,12 @@ type ThemeType = 'light' | 'dark';
 const App: React.FunctionComponent = () => {
   const [theme, setTheme] = useState<ThemeType>('light');
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setTheme(theme === 'light' ? 'dark' : 'light');
-    }, 10000);
-    return () => clearTimeout(timer);
-  }, [theme]);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setTheme(theme === 'light' ? 'dark' : 'light');
+  //   }, 10000);
+  //   return () => clearTimeout(timer);
+  // }, [theme]);
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
