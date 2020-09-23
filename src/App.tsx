@@ -7,7 +7,7 @@ import Profile from 'routes/Profile';
 import Search from 'routes/Search';
 import GlobalStyle from 'styles/GlobalStyle';
 import { lightTheme, darkTheme } from 'styles/themes';
-import Header from 'components/Header';
+import Header from 'components/header';
 
 type ThemeType = 'light' | 'dark';
 
