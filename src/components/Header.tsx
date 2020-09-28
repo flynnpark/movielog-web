@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
@@ -40,16 +40,26 @@ const NavSearchLi = styled(NavLi)`
   flex: 1;
 `;
 
-const NavLink = styled(Link)<{ isActive?: boolean }>`
+const NavMenu = styled(NavLink)`
   text-decoration: none;
-  color: ${({ theme, isActive }) =>
-    isActive ? theme.palette.primary : theme.typography.primary};
+  color: ${({ theme }) => theme.typography.primary};
+
+  &.active {
+    color: ${({ theme }) => theme.palette.primary};
+  }
 `;
 
-const NavButton = styled(Link)<{ isPrimary?: boolean }>`
+const NavButton = styled(NavLink)<{ $isPrimary?: boolean }>`
+  height: 32px;
+  color: ${({ theme, $isPrimary }) =>
+    $isPrimary ? theme.palette.primary : theme.typography.primary};
+  padding: 4px 15px;
+  border: 1px solid;
+  border-radius: 2px;
+  text-align: center;
   text-decoration: none;
-  color: ${({ theme, isPrimary }) =>
-    isPrimary ? theme.palette.primary : theme.typography.primary};
+  vertical-align: middle;
+  line-height: 22px;
 `;
 
 const Header: React.FC = () => {
@@ -59,19 +69,17 @@ const Header: React.FC = () => {
         <LogoContainer>Logo</LogoContainer>
         <NavUl>
           <NavLi>
-            <NavLink to={'/'} isActive={true}>
-              피드
-            </NavLink>
+            <NavMenu to={'/feed'}>피드</NavMenu>
           </NavLi>
           <NavLi>
-            <NavLink to={'/'}>둘러보기</NavLink>
+            <NavMenu to={'/explore'}>둘러보기</NavMenu>
           </NavLi>
           <NavSearchLi>검색</NavSearchLi>
           <NavLi>
-            <NavButton to={'/'}>로그인</NavButton>
+            <NavButton to={'/login'}>로그인</NavButton>
           </NavLi>
           <NavLi>
-            <NavButton to={'/'} isPrimary={true}>
+            <NavButton to={'/sign-up'} $isPrimary={true}>
               회원가입
             </NavButton>
           </NavLi>
