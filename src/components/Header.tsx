@@ -1,13 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import MenuButton from './MenuButton';
 
 const HeaderContainer = styled.header`
   height: 64px;
   line-height: 64px;
-  background: ${(props) => props.theme.background};
-  box-shadow: ${(props) => props.theme.shadow};
+  background: ${({ theme }) => theme.background};
+  box-shadow: ${({ theme }) => theme.shadow};
   display: block;
   flex-direction: row;
 `;
@@ -41,30 +40,40 @@ const NavSearchLi = styled(NavLi)`
   flex: 1;
 `;
 
+const NavLink = styled(Link)<{ isActive?: boolean }>`
+  text-decoration: none;
+  color: ${({ theme, isActive }) =>
+    isActive ? theme.palette.primary : theme.typography.primary};
+`;
+
+const NavButton = styled(Link)<{ isPrimary?: boolean }>`
+  text-decoration: none;
+  color: ${({ theme, isPrimary }) =>
+    isPrimary ? theme.palette.primary : theme.typography.primary};
+`;
+
 const Header: React.FC = () => {
-  const history = useHistory();
-
-  const handleClickMenu = (to: string) => () => history.push(to);
-
   return (
     <HeaderContainer>
       <NavigationBar>
         <LogoContainer>Logo</LogoContainer>
         <NavUl>
           <NavLi>
-            <MenuButton type="link" onClick={handleClickMenu('/')}>
+            <NavLink to={'/'} isActive={true}>
               피드
-            </MenuButton>
+            </NavLink>
           </NavLi>
           <NavLi>
-            <MenuButton type="link">둘러보기</MenuButton>
+            <NavLink to={'/'}>둘러보기</NavLink>
           </NavLi>
           <NavSearchLi>검색</NavSearchLi>
           <NavLi>
-            <MenuButton>로그인</MenuButton>
+            <NavButton to={'/'}>로그인</NavButton>
           </NavLi>
           <NavLi>
-            <MenuButton>회원가입</MenuButton>
+            <NavButton to={'/'} isPrimary={true}>
+              회원가입
+            </NavButton>
           </NavLi>
         </NavUl>
       </NavigationBar>
