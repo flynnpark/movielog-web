@@ -1,3 +1,8 @@
+import {
+  presetPalettes,
+  presetDarkPalettes,
+  PalettesProps,
+} from '@ant-design/colors';
 import { hsv } from 'utils/style';
 
 type NeutralColor = (percentage: number) => string;
@@ -35,6 +40,8 @@ const borderBase = {
 
 export interface CustomThemeInterface {
   background: string;
+  colors: PalettesProps;
+  palette: { primary: string };
   shadow: string;
   typography: {
     primary: string;
@@ -48,6 +55,10 @@ export interface CustomThemeInterface {
 
 const lightTheme: CustomThemeInterface = {
   background: gray[1],
+  colors: presetPalettes,
+  palette: {
+    primary: presetPalettes.blue[5],
+  },
   shadow: 'rgb(240, 241, 242) 0px 2px 8px 0px ',
   typography: {
     primary: black(85),
@@ -60,6 +71,10 @@ const lightTheme: CustomThemeInterface = {
 const darkTheme: CustomThemeInterface = {
   ...lightTheme,
   background: gray[11],
+  colors: presetDarkPalettes,
+  palette: {
+    primary: presetDarkPalettes.blue[5],
+  },
   shadow: 'rgba(0, 0, 0, 0.65) 0px 2px 8px 0px',
   typography: {
     primary: white(85),
