@@ -13,8 +13,19 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    padding: 0 50px;
     padding-top: 40px;
+
+    @media (min-width: 600px) {
+      margin: 0 20px;
+    }
+
+    @media (min-width: 760px) {
+      margin: 0 3.5%;
+    }
+
+    @media (min-width: 1100px) {
+      margin: 0 60px;
+    }
   }
 `;
 

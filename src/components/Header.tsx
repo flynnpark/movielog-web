@@ -15,7 +15,19 @@ const NavigationBar = styled.nav`
   display: flex;
   flex-direction: row;
   flex: 1;
-  padding: 0 50px;
+  max-width: 1320px;
+
+  @media (min-width: 600px) {
+    margin: 0 20px;
+  }
+
+  @media (min-width: 760px) {
+    margin: 0 3.5%;
+  }
+
+  @media (min-width: 1100px) {
+    margin: 0 60px;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -67,7 +79,7 @@ const NavButton = styled(NavLink)<{ $isPrimary?: boolean }>`
   padding: 4px 15px;
   border: 1px solid
     ${({ theme, $isPrimary }) =>
-      $isPrimary ? theme.palette.primary : theme.colors.grey[0]};
+      $isPrimary ? theme.palette.primary : theme.palette.border};
   border-radius: 4px;
   text-align: center;
   text-decoration: none;

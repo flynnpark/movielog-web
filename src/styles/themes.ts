@@ -31,25 +31,15 @@ export const gray = [
   '#000000',
 ];
 
-const borderBase = {
-  radius: 2,
-  width: 1,
-  style: 'solid',
-  color: hsv(0, 0, 0.85),
-};
-
 export interface CustomThemeInterface {
   background: string;
   colors: PalettesProps;
-  palette: { primary: string };
+  palette: { primary: string; border: string };
   shadow: string;
   typography: {
     primary: string;
     secondary: string;
     disabled: string;
-  };
-  border: {
-    default: typeof borderBase;
   };
 }
 
@@ -58,6 +48,7 @@ const lightTheme: CustomThemeInterface = {
   colors: presetPalettes,
   palette: {
     primary: presetPalettes.blue[5],
+    border: hsv(0, 0, 0.85),
   },
   shadow: 'rgb(240, 241, 242) 0px 2px 8px 0px ',
   typography: {
@@ -65,7 +56,6 @@ const lightTheme: CustomThemeInterface = {
     secondary: black(45),
     disabled: black(25),
   },
-  border: { default: borderBase },
 };
 
 const darkTheme: CustomThemeInterface = {
@@ -74,18 +64,13 @@ const darkTheme: CustomThemeInterface = {
   colors: presetDarkPalettes,
   palette: {
     primary: presetDarkPalettes.blue[5],
+    border: '#434343',
   },
   shadow: 'rgba(0, 0, 0, 0.65) 0px 2px 8px 0px',
   typography: {
     primary: white(85),
     secondary: white(65),
     disabled: white(35),
-  },
-  border: {
-    default: {
-      ...borderBase,
-      color: '#434343',
-    },
   },
 };
 
