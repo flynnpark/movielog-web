@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { globalContainer } from 'styles/mediaQuery';
 
 const HeaderContainer = styled.header`
   height: 64px;
@@ -15,19 +16,7 @@ const NavigationBar = styled.nav`
   display: flex;
   flex-direction: row;
   flex: 1;
-  max-width: 1320px;
-
-  @media (min-width: 600px) {
-    margin: 0 20px;
-  }
-
-  @media (min-width: 760px) {
-    margin: 0 3.5%;
-  }
-
-  @media (min-width: 1100px) {
-    margin: 0 60px;
-  }
+  ${globalContainer}
 `;
 
 const LogoContainer = styled.div`
