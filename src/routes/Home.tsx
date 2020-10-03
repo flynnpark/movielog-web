@@ -1,7 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const Home: React.FC = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <Helmet title={'Home'} />
+      Home
+    </>
+  );
 };
 
 export default Home;
