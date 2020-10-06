@@ -1,11 +1,13 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 const Home: React.FC = () => {
   return (
     <>
-      <Helmet title={'Home'} />
-      Home
+      <Head>
+        <title>메인</title>
+      </Head>
+      메인
     </>
   );
 };

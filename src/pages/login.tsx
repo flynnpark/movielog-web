@@ -1,10 +1,12 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 const Login: React.FC = () => {
   return (
     <>
-      <Helmet title={'Login'} />
+      <Head>
+        <title>로그인</title>
+      </Head>
       Login
     </>
   );

@@ -1,10 +1,12 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 const NotFound: React.FC = () => {
   return (
     <>
-      <Helmet title={'존재하지 않는 페이지입니다'} />
+      <Head>
+        <title>존재하지 않는 페이지입니다</title>
+      </Head>
       존재하지 않는 페이지입니다.
     </>
   );

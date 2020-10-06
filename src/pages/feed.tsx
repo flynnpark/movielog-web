@@ -1,11 +1,13 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 const Feed: React.FC = () => {
   return (
     <>
-      <Helmet title={'Feed'} />
-      Feed
+      <Head>
+        <title>피드</title>
+      </Head>
+      피드
     </>
   );
 };

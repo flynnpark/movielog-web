@@ -1,4 +1,4 @@
-function hsv(h: number, s: number, v: number) {
+const hsv = (h: number, s: number, v: number): string => {
   const { round } = Math;
   const i = Math.floor(h * 6);
   const f = h * 6 - i;
@@ -36,6 +36,6 @@ function hsv(h: number, s: number, v: number) {
       break;
   }
   return `rgb(${round(r * 255)}, ${round(g * 255)}, ${round(b * 255)})`;
-}
+};
 
 export { hsv };
