@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "jsx": "react",
+    "jsx": "preserve",
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": "./src",
@@ -19,9 +19,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "typeRoots": ["./types"]
+    "typeRoots": [
+      "./types"
+    ]
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

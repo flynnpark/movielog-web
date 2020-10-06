@@ -1,7 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
 import styled from 'styled-components';
 import { globalContainer } from 'styles/mediaQuery';
+import NavButton from './NavButton';
+import NavLink from './NavLink';
 
 const HeaderContainer = styled.header`
   height: 64px;
@@ -45,35 +47,8 @@ const NavButtonLi = styled(NavLi)`
   padding: 0 10px;
 `;
 
-const NavLogo = styled(NavLink)`
+const NavLogo = styled.a`
   text-decoration: none;
-`;
-
-const NavMenu = styled(NavLink)`
-  color: ${({ theme }) => theme.typography.secondary};
-  font-weight: 500;
-  text-decoration: none;
-
-  &.active {
-    color: ${({ theme }) => theme.typography.primary};
-  }
-`;
-
-const NavButton = styled(NavLink)<{ $isPrimary?: boolean }>`
-  height: 32px;
-  color: ${({ theme, $isPrimary }) =>
-    $isPrimary ? '#fff' : theme.typography.primary};
-  background-color: ${({ theme, $isPrimary }) =>
-    $isPrimary ? theme.palette.primary : 'none'};
-  padding: 4px 15px;
-  border: 1px solid
-    ${({ theme, $isPrimary }) =>
-      $isPrimary ? theme.palette.primary : theme.palette.border};
-  border-radius: 4px;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  line-height: 22px;
 `;
 
 const Header: React.FC = () => {
@@ -81,21 +56,23 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <NavigationBar>
         <LogoContainer>
-          <NavLogo to={'/'}>Logo</NavLogo>
+          <Link href={'/'} passHref={true}>
+            <NavLogo>Logo</NavLogo>
+          </Link>
         </LogoContainer>
         <NavUl>
           <NavLi>
-            <NavMenu to={'/feed'}>피드</NavMenu>
+            <NavLink href={'/feed'}>피드</NavLink>
           </NavLi>
           <NavLi>
-            <NavMenu to={'/explore'}>둘러보기</NavMenu>
+            <NavLink href={'/explore'}>둘러보기</NavLink>
           </NavLi>
           <NavSearchLi>검색</NavSearchLi>
           <NavButtonLi>
-            <NavButton to={'/login'}>로그인</NavButton>
+            <NavButton href={'/login'}>로그인</NavButton>
           </NavButtonLi>
           <NavButtonLi>
-            <NavButton to={'/sign-up'} $isPrimary={true}>
+            <NavButton href={'/sign-up'} isPrimary={true}>
               회원가입
             </NavButton>
           </NavButtonLi>
