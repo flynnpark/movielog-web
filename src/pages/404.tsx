@@ -1,13 +1,11 @@
 import React from 'react';
-import Head from 'next/head';
+import Head from 'components/head';
 
 const NotFound: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>존재하지 않는 페이지입니다</title>
-      </Head>
-      존재하지 않는 페이지입니다.
+      <Head title={'페이지를 찾을 수 없습니다'} />
+      페이지를 찾을 수 없습니다.
     </>
   );
 };

@@ -1,12 +1,10 @@
 import React from 'react';
-import Head from 'next/head';
+import Head from 'components/head';
 
 const Feed: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>피드</title>
-      </Head>
+      <Head title={'피드'} />
       피드
     </>
   );

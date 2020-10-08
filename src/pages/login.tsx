@@ -1,12 +1,10 @@
 import React from 'react';
-import Head from 'next/head';
+import Head from 'components/head';
 
 const Login: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>로그인</title>
-      </Head>
+      <Head title={'로그인'} />
       Login
     </>
   );

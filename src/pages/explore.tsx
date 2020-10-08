@@ -1,13 +1,11 @@
 import React from 'react';
-import Head from 'next/head';
+import Head from 'components/head';
 
 const Explore: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>찾아보기</title>
-      </Head>
-      피드
+      <Head title={'찾아보기'} />
+      찾아보기
     </>
   );
 };
