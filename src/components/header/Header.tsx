@@ -21,14 +21,6 @@ const NavigationBar = styled.nav`
   ${globalContainer}
 `;
 
-const LogoContainer = styled.div`
-  display: flex;
-  flex: 0;
-  align-items: center;
-  margin-right: 32px;
-  font-size: 14px;
-`;
-
 const NavUl = styled.ul`
   display: flex;
   flex-direction: row;
@@ -37,6 +29,13 @@ const NavUl = styled.ul`
 
 const NavLi = styled.li`
   padding: 0 20px;
+`;
+
+const NavLogoLi = styled(NavLi)`
+  padding: 0;
+  align-items: center;
+  margin-right: 32px;
+  font-size: 14px;
 `;
 
 const NavSearchLi = styled(NavLi)`
@@ -48,6 +47,9 @@ const NavButtonLi = styled(NavLi)`
 `;
 
 const NavLogo = styled.a`
+  color: ${({ theme }) => theme.typography.primary};
+  font-size: 20px;
+  font-weight: 700;
   text-decoration: none;
 `;
 
@@ -55,12 +57,12 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <NavigationBar>
-        <LogoContainer>
-          <Link href={'/'} passHref={true}>
-            <NavLogo>Logo</NavLogo>
-          </Link>
-        </LogoContainer>
         <NavUl>
+          <NavLogoLi>
+            <Link href={'/'} passHref={true}>
+              <NavLogo>무비로그</NavLogo>
+            </Link>
+          </NavLogoLi>
           <NavLi>
             <NavLink href={'/feed'}>피드</NavLink>
           </NavLi>
