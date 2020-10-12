@@ -1,5 +1,5 @@
 import React from 'react';
-import Head from 'components/head';
+import Head from 'components/Head';
 
 const NotFound: React.FC = () => {
   return (

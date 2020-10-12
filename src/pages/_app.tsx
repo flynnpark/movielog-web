@@ -3,7 +3,7 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from 'styles/themes';
 import GlobalStyle from 'styles/GlobalStyle';
-import Header from 'components/header';
+import Header from 'components/Header';
 
 type ThemeType = 'light' | 'dark';
 

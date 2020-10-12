@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Head from 'components/head';
+import Head from 'components/Head';
 
 const PageTitle = styled.h1`
   font-size: 24px;
