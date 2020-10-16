@@ -3,16 +3,7 @@ import Link, { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-const StyledMenu = styled.a<{ $isActive?: boolean }>`
-  color: ${({ theme, $isActive }) =>
-    $isActive ? theme.typography.primary : theme.typography.secondary};
-  font-weight: 500;
-  text-decoration: none;
-`;
-
-type NavLinkProps = React.PropsWithChildren<LinkProps>;
-
-const NavLink: React.FC<NavLinkProps> = ({ as, children, href }) => {
+const NavLink: React.FC<LinkProps> = ({ as, children, href }) => {
   const { asPath } = useRouter();
 
   return (
@@ -23,5 +14,12 @@ const NavLink: React.FC<NavLinkProps> = ({ as, children, href }) => {
     </Link>
   );
 };
+
+const StyledMenu = styled.a<{ $isActive?: boolean }>`
+  color: ${({ theme, $isActive }) =>
+    $isActive ? theme.typography.primary : theme.typography.secondary};
+  font-weight: 500;
+  text-decoration: none;
+`;
 
 export default NavLink;

@@ -2,6 +2,16 @@ import React from 'react';
 import Link, { LinkProps } from 'next/link';
 import styled from 'styled-components';
 
+type NavButtonProps = { isPrimary?: boolean } & LinkProps;
+
+const NavButton: React.FC<NavButtonProps> = ({ children, href, isPrimary }) => {
+  return (
+    <Link href={href} passHref={true}>
+      <StyledButton $isPrimary={isPrimary}>{children}</StyledButton>
+    </Link>
+  );
+};
+
 const StyledButton = styled.a<{ $isPrimary?: boolean }>`
   height: 32px;
   color: ${({ theme, $isPrimary }) =>
@@ -18,17 +28,5 @@ const StyledButton = styled.a<{ $isPrimary?: boolean }>`
   vertical-align: middle;
   line-height: 22px;
 `;
-
-type NavButtonProps = { isPrimary?: boolean } & React.PropsWithChildren<
-  LinkProps
->;
-
-const NavButton: React.FC<NavButtonProps> = ({ children, href, isPrimary }) => {
-  return (
-    <Link href={href} passHref={true}>
-      <StyledButton $isPrimary={isPrimary}>{children}</StyledButton>
-    </Link>
-  );
-};
 
 export default NavButton;

@@ -5,6 +5,37 @@ import { globalContainer } from 'styles/mediaQuery';
 import NavButton from './NavButton';
 import NavLink from './NavLink';
 
+const Header: React.FC = () => {
+  return (
+    <HeaderContainer>
+      <NavigationBar>
+        <NavUl>
+          <NavLogoLi>
+            <Link href={'/'} passHref={true}>
+              <NavLogo>무비로그</NavLogo>
+            </Link>
+          </NavLogoLi>
+          <NavLi>
+            <NavLink href={'/feed'}>피드</NavLink>
+          </NavLi>
+          <NavLi>
+            <NavLink href={'/explore'}>둘러보기</NavLink>
+          </NavLi>
+          <NavSearchLi>검색</NavSearchLi>
+          <NavButtonLi>
+            <NavButton href={'/login'}>로그인</NavButton>
+          </NavButtonLi>
+          <NavButtonLi>
+            <NavButton href={'/sign-up'} isPrimary={true}>
+              회원가입
+            </NavButton>
+          </NavButtonLi>
+        </NavUl>
+      </NavigationBar>
+    </HeaderContainer>
+  );
+};
+
 const HeaderContainer = styled.header`
   height: 64px;
   line-height: 64px;
@@ -52,36 +83,5 @@ const NavLogo = styled.a`
   font-weight: 700;
   text-decoration: none;
 `;
-
-const Header: React.FC = () => {
-  return (
-    <HeaderContainer>
-      <NavigationBar>
-        <NavUl>
-          <NavLogoLi>
-            <Link href={'/'} passHref={true}>
-              <NavLogo>무비로그</NavLogo>
-            </Link>
-          </NavLogoLi>
-          <NavLi>
-            <NavLink href={'/feed'}>피드</NavLink>
-          </NavLi>
-          <NavLi>
-            <NavLink href={'/explore'}>둘러보기</NavLink>
-          </NavLi>
-          <NavSearchLi>검색</NavSearchLi>
-          <NavButtonLi>
-            <NavButton href={'/login'}>로그인</NavButton>
-          </NavButtonLi>
-          <NavButtonLi>
-            <NavButton href={'/sign-up'} isPrimary={true}>
-              회원가입
-            </NavButton>
-          </NavButtonLi>
-        </NavUl>
-      </NavigationBar>
-    </HeaderContainer>
-  );
-};
 
 export default Header;
