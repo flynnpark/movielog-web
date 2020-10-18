@@ -1,27 +1,29 @@
 import React from 'react';
-import styled from 'styled-components';
 import Head from 'components/Head';
-import MovieCard from 'components/MovieCard';
 import MovieSection from 'components/MovieSection';
 
-const PageTitle = styled.h1`
-  font-size: 24px;
-  font-weight: 700;
-`;
+const movies: Movie[] = [
+  {
+    title: '영화 1',
+  },
+  {
+    title: '영화 2',
+  },
+  {
+    title: '영화 3',
+  },
+  {
+    title: '영화 4',
+  },
+];
 
 const Home: React.FC = () => {
   return (
     <>
       <Head />
-      <PageTitle>인기 영화</PageTitle>
-      <MovieSection>
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-      </MovieSection>
-      <PageTitle>새로 나왔어요!</PageTitle>
-      <PageTitle>최근 평점된 영화</PageTitle>
+      <MovieSection title={'인기 영화'} movies={movies} />
+      <MovieSection title={'새로 나왔어요!'} movies={movies} />
+      <MovieSection title={'최근 평점된 영화'} movies={movies} />
     </>
   );
 };

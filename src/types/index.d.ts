@@ -1,0 +1,3 @@
+interface Movie {
+  title: string;
+}
