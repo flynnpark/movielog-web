@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 const globalContainer = css`
-  width: 1320px;
+  max-width: 1320px;
 
   @media (min-width: 600px) {
     margin: 0 20px;
