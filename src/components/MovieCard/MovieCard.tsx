@@ -13,7 +13,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ title, imageSrc }) => {
           <MovieCardImage src={imageSrc || 'images/poster.jpg'} />
         </MoviePosterContainer>
       </MoviePosterPlacer>
-      {title}
+      <MovieInfo>
+        <MovieTitle>{title}</MovieTitle>
+      </MovieInfo>
     </MovieCardContainer>
   );
 };
@@ -49,6 +51,14 @@ const MovieCardImage = styled.img`
   object-fit: cover;
   background: rgb(248, 248, 248);
   transition: all 300ms ease 0s;
+`;
+
+const MovieInfo = styled.div`
+  margin-top: 8px;
+`;
+
+const MovieTitle = styled.h4`
+  font-weight: 500;
 `;
 
 export default MovieCard;

@@ -47,15 +47,18 @@ const HorizontalContainer = styled.div`
 `;
 
 const MovieListContainer = styled.div`
+  display: block;
   margin-left: 0;
   margin-right: 0;
 `;
 
 const MovieListUl = styled.ul`
+  display: block;
   white-space: nowrap;
 `;
 
 const MovieListLi = styled.li`
+  box-sizing: border-box;
   display: inline-block;
   width: 33.3333%;
   padding: 0 5px;
