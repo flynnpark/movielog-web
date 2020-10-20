@@ -44,6 +44,10 @@ const HorizontalContainer = styled.div`
   @media (min-width: 1100px) {
     margin: 0 -8px;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const MovieListContainer = styled.div`

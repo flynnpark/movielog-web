@@ -1,27 +1,32 @@
 import React from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 type MovieCardProps = {
   imageSrc?: string;
 } & Movie;
 
-const MovieCard: React.FC<MovieCardProps> = ({ title, imageSrc }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ id, title, imageSrc }) => {
   return (
-    <MovieCardContainer>
-      <MoviePosterPlacer>
-        <MoviePosterContainer>
-          <MovieCardImage src={imageSrc || 'images/poster.jpg'} />
-        </MoviePosterContainer>
-      </MoviePosterPlacer>
-      <MovieInfo>
-        <MovieTitle>{title}</MovieTitle>
-      </MovieInfo>
-    </MovieCardContainer>
+    <Link href={`/movies/${id}`} passHref={true}>
+      <MovieCardContainer>
+        <MoviePosterPlacer>
+          <MoviePosterContainer>
+            <MovieCardImage src={imageSrc || 'images/poster.jpg'} />
+          </MoviePosterContainer>
+        </MoviePosterPlacer>
+        <MovieInfo>
+          <MovieTitle>{title}</MovieTitle>
+          <MovieSimpleInfo>2011</MovieSimpleInfo>
+        </MovieInfo>
+      </MovieCardContainer>
+    </Link>
   );
 };
 
 const MovieCardContainer = styled.a`
   width: 100%;
+  color: ${({ theme }) => theme.typography.primary};
   text-decoration: none;
 `;
 
@@ -59,6 +64,10 @@ const MovieInfo = styled.div`
 
 const MovieTitle = styled.h4`
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
+
+const MovieSimpleInfo = styled.span``;
 
 export default MovieCard;
