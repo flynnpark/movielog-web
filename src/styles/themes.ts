@@ -2,6 +2,7 @@ import {
   presetPalettes,
   presetDarkPalettes,
   PalettesProps,
+  generate,
 } from '@ant-design/colors';
 import { hsv } from 'utils/style';
 
@@ -44,8 +45,8 @@ export interface CustomThemeInterface {
 }
 
 const lightTheme: CustomThemeInterface = {
-  background: gray[1],
-  colors: presetPalettes,
+  background: gray[0],
+  colors: { ...presetPalettes, gray: generate('#eeeeee') },
   palette: {
     primary: presetPalettes.blue[5],
     border: hsv(0, 0, 0.85),
@@ -61,7 +62,12 @@ const lightTheme: CustomThemeInterface = {
 const darkTheme: CustomThemeInterface = {
   ...lightTheme,
   background: gray[11],
-  colors: presetDarkPalettes,
+  colors: {
+    ...presetDarkPalettes,
+    gray: generate('#eeeeee', {
+      theme: 'dark',
+    }),
+  },
   palette: {
     primary: presetDarkPalettes.blue[5],
     border: '#434343',

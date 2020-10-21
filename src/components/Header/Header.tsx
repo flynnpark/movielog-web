@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { globalContainer } from 'styles/mediaQuery';
 import NavButton from './NavButton';
 import NavLink from './NavLink';
+import SearchBar from './SearchBar';
 
 const Header: React.FC = () => {
   return (
@@ -21,7 +22,9 @@ const Header: React.FC = () => {
           <NavLi>
             <NavLink href={'/explore'}>둘러보기</NavLink>
           </NavLi>
-          <NavSearchLi>검색</NavSearchLi>
+          <NavSearchLi>
+            <SearchBar />
+          </NavSearchLi>
           <NavButtonLi>
             <NavButton href={'/login'}>로그인</NavButton>
           </NavButtonLi>
@@ -71,6 +74,9 @@ const NavLogoLi = styled(NavLi)`
 
 const NavSearchLi = styled(NavLi)`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const NavButtonLi = styled(NavLi)`
