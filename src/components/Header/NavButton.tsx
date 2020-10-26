@@ -13,7 +13,7 @@ const NavButton: React.FC<NavButtonProps> = ({ children, href, isPrimary }) => {
 };
 
 const StyledButton = styled.a<{ $isPrimary?: boolean }>`
-  height: 32px;
+  display: inline-flex;
   color: ${({ theme, $isPrimary }) =>
     $isPrimary ? '#fff' : theme.typography.primary};
   background-color: ${({ theme, $isPrimary }) =>
@@ -26,7 +26,7 @@ const StyledButton = styled.a<{ $isPrimary?: boolean }>`
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
-  line-height: 22px;
+  line-height: 1.5715;
 `;
 
 export default NavButton;

@@ -16,8 +16,11 @@ const NavLink: React.FC<LinkProps> = ({ as, children, href }) => {
 };
 
 const StyledMenu = styled.a<{ $isActive?: boolean }>`
+  display: inline-flex;
   color: ${({ theme, $isActive }) =>
     $isActive ? theme.typography.primary : theme.typography.secondary};
+  padding: 4px 15px;
+  line-height: 1.5715;
   font-weight: 500;
   text-decoration: none;
 `;

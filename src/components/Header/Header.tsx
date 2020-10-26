@@ -62,7 +62,7 @@ const NavUl = styled.ul`
 `;
 
 const NavLi = styled.li`
-  padding: 0 20px;
+  padding: 0 10px;
 `;
 
 const NavLogoLi = styled(NavLi)`
