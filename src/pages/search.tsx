@@ -9,20 +9,20 @@ const Search: React.FC = () => {
 
   const title = query?.q ? `'${query?.q}' 검색 결과` : undefined;
 
-  if (!result.length) {
-    return (
-      <EmptyContainer>
-        <EmptyResult>
-          검색 결과가 없습니다. 다른 검색어로 검색해보세요.
-        </EmptyResult>
-      </EmptyContainer>
-    );
-  }
+  const childComponent = result?.length ? (
+    'Search'
+  ) : (
+    <EmptyContainer>
+      <EmptyResult>
+        검색 결과가 없습니다. 다른 검색어로 검색해보세요.
+      </EmptyResult>
+    </EmptyContainer>
+  );
 
   return (
     <>
       <Head title={title} />
-      Search
+      {childComponent}
     </>
   );
 };

@@ -1,9 +1,11 @@
 import React, { useCallback, useState } from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { BsSearch } from 'react-icons/bs';
 import { VscClose } from 'react-icons/vsc';
 
 const SearchBar: React.FC = () => {
+  const router = useRouter();
   const [term, setTerm] = useState<string>('');
 
   const handleChange = useCallback(
@@ -12,8 +14,16 @@ const SearchBar: React.FC = () => {
     []
   );
 
+  const handleSearch = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      router.push({ pathname: '/search', query: { q: term } });
+    },
+    [term]
+  );
+
   const handleReset = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
       event.preventDefault();
       setTerm('');
     },
@@ -21,7 +31,7 @@ const SearchBar: React.FC = () => {
   );
 
   return (
-    <SearchContainer>
+    <SearchForm onSubmit={handleSearch}>
       <SearchInputContainer>
         <SearchIconContainer>
           <SearchIcon size={14} />
@@ -36,11 +46,11 @@ const SearchBar: React.FC = () => {
           <VscClose size={16} />
         </ResetButton>
       </SearchInputContainer>
-    </SearchContainer>
+    </SearchForm>
   );
 };
 
-const SearchContainer = styled.form`
+const SearchForm = styled.form`
   display: inline;
 `;
 
@@ -76,7 +86,7 @@ const SearchInput = styled.input`
   }
 `;
 
-const ResetButton = styled.button<{ $isDisplay: boolean }>`
+const ResetButton = styled.a<{ $isDisplay: boolean }>`
   display: ${({ $isDisplay }) => ($isDisplay ? 'inline-flex' : 'none')};
   color: ${({ theme }) => theme.typography.secondary};
   align-items: center;
