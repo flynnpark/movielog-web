@@ -40,12 +40,17 @@ const Header: React.FC = () => {
 };
 
 const HeaderContainer = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 64px;
   line-height: 64px;
   background: ${({ theme }) => theme.background};
   box-shadow: ${({ theme }) => theme.shadow};
   display: block;
   flex-direction: row;
+  z-index: 999;
 `;
 
 const NavigationBar = styled.nav`

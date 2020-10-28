@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    padding-top: 40px;
+    padding-top: 104px;
     ${globalContainer}
   }
 `;
