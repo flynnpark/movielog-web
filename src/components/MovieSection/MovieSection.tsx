@@ -39,11 +39,6 @@ const SectionTitle = styled.h1`
 const HorizontalContainer = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
-  margin: 0 -5px;
-
-  @media (min-width: 1100px) {
-    margin: 0 -8px;
-  }
 
   ::-webkit-scrollbar {
     display: none;
@@ -52,8 +47,11 @@ const HorizontalContainer = styled.div`
 
 const MovieListContainer = styled.div`
   display: block;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0 -5px;
+
+  @media (min-width: 1100px) {
+    margin: 0 -8px;
+  }
 `;
 
 const MovieListUl = styled.ul`
