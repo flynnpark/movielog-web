@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'components/Head';
 import MovieSection from 'components/MovieSection';
+import { globalContainer } from 'styles/mediaQuery';
+import styled from 'styled-components';
 
 const movies: Movie[] = [
   {
@@ -39,13 +41,17 @@ const movies: Movie[] = [
 
 const Home: React.FC = () => {
   return (
-    <>
+    <HomeContainer>
       <Head />
       <MovieSection title={'인기 영화'} movies={movies} />
       <MovieSection title={'새로 나왔어요!'} movies={movies} />
       <MovieSection title={'최근 평점된 영화'} movies={movies} />
-    </>
+    </HomeContainer>
   );
 };
+
+const HomeContainer = styled.div`
+  ${globalContainer}
+`;
 
 export default Home;

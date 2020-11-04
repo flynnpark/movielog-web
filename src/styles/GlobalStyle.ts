@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import { reset } from 'styled-reset';
-import { globalContainer } from './mediaQuery';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -15,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
 
   main {
     padding-top: 104px;
-    ${globalContainer}
   }
 `;
 

@@ -63,11 +63,14 @@ const MovieInfo = styled.div`
 `;
 
 const MovieTitle = styled.h4`
-  font-weight: 500;
+  font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: ${({ theme }) => theme.typography.primary};
 `;
 
-const MovieSimpleInfo = styled.span``;
+const MovieSimpleInfo = styled.span`
+  color: ${({ theme }) => theme.typography.secondary};
+`;
 
 export default MovieCard;

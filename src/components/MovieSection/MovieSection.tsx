@@ -26,7 +26,7 @@ const MovieSection: React.FC<MovieSectionProps> = ({ title, movies }) => {
   );
 };
 
-const Section = styled.div`
+const Section = styled.section`
   margin-bottom: 40px;
 `;
 
