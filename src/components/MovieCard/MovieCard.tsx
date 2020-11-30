@@ -12,7 +12,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ id, title, imageSrc }) => {
       <MovieCardContainer>
         <MoviePosterPlacer>
           <MoviePosterContainer>
-            <MovieCardImage src={imageSrc || 'images/poster.jpg'} />
+            <MovieCardImage src={imageSrc || '/images/poster.jpg'} />
           </MoviePosterContainer>
         </MoviePosterPlacer>
         <MovieInfo>
