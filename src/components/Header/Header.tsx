@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { globalContainer } from 'styles/mediaQuery';
 import NavButton from './NavButton';
@@ -12,24 +12,22 @@ const Header: React.FC = () => {
       <NavigationBar>
         <NavUl>
           <NavLogoLi>
-            <Link href={'/'} passHref={true}>
-              <NavLogo>무비로그</NavLogo>
-            </Link>
+            <NavLogo to={'/'}>무비로그</NavLogo>
           </NavLogoLi>
           <NavLi>
-            <NavLink href={'/feed'}>피드</NavLink>
+            <NavLink to={'/feed'}>피드</NavLink>
           </NavLi>
           <NavLi>
-            <NavLink href={'/explore'}>둘러보기</NavLink>
+            <NavLink to={'/explore'}>둘러보기</NavLink>
           </NavLi>
           <NavSearchLi>
             <SearchBar />
           </NavSearchLi>
           <NavButtonLi>
-            <NavButton href={'/login'}>로그인</NavButton>
+            <NavButton to={'/login'}>로그인</NavButton>
           </NavButtonLi>
           <NavButtonLi>
-            <NavButton href={'/sign-up'} isPrimary={true}>
+            <NavButton to={'/sign-up'} isPrimary={true}>
               회원가입
             </NavButton>
           </NavButtonLi>
@@ -88,7 +86,7 @@ const NavButtonLi = styled(NavLi)`
   padding: 0 10px;
 `;
 
-const NavLogo = styled.a`
+const NavLogo = styled(Link)`
   color: ${({ theme }) => theme.typography.primary};
   font-size: 20px;
   font-weight: 700;

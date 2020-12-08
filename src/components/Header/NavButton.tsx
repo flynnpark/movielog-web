@@ -1,18 +1,18 @@
 import React from 'react';
-import Link, { LinkProps } from 'next/link';
+import { Link, LinkProps } from 'react-router-dom';
 import styled from 'styled-components';
 
 type NavButtonProps = { isPrimary?: boolean } & LinkProps;
 
-const NavButton: React.FC<NavButtonProps> = ({ children, href, isPrimary }) => {
+const NavButton: React.FC<NavButtonProps> = ({ children, to, isPrimary }) => {
   return (
-    <Link href={href} passHref={true}>
-      <StyledButton $isPrimary={isPrimary}>{children}</StyledButton>
-    </Link>
+    <StyledButton to={to} $isPrimary={isPrimary}>
+      {children}
+    </StyledButton>
   );
 };
 
-const StyledButton = styled.a<{ $isPrimary?: boolean }>`
+const StyledButton = styled(Link)<{ $isPrimary?: boolean }>`
   display: inline-flex;
   color: ${({ theme, $isPrimary }) =>
     $isPrimary ? '#fff' : theme.typography.primary};

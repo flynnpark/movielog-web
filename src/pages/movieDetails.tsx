@@ -1,17 +1,23 @@
 import React from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Helmet from 'react-helmet';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { globalContainer } from 'styles/mediaQuery';
 
+type MovieDetailsPrams = {
+  movieId?: string;
+};
+
 const MovieDetail: React.FC = () => {
-  const { query } = useRouter();
+  const { movieId: rawMovieId } = useParams<MovieDetailsPrams>();
+
+  console.log(rawMovieId);
 
   return (
     <>
-      <Head>
+      <Helmet>
         <title>영화 상세</title>
-      </Head>
+      </Helmet>
       <MovieDetailContainer>
         <BackdropContainer $backdropSrc={'/images/backdrop.jpg'}>
           백드롭

@@ -1,13 +1,17 @@
 import React from 'react';
-import { useRouter } from 'next/router';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import queryString from 'query-string';
 import Head from 'components/Head';
 
+type SearchQuery = { q?: string };
+
 const Search: React.FC = () => {
-  const { query } = useRouter();
+  const { search } = useLocation<SearchQuery>();
+  const { q } = queryString.parse(search);
   const result: Movie[] = [];
 
-  const title = query?.q ? `'${query?.q}' 검색 결과` : undefined;
+  const title = q ? `'${q}' 검색 결과` : undefined;
 
   const childComponent = result?.length ? (
     'Search'

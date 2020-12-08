@@ -1,5 +1,5 @@
 import React from 'react';
-import NextHead from 'next/head';
+import Helmet from 'react-helmet';
 
 interface HeadProps {
   title?: string;
@@ -8,11 +8,12 @@ interface HeadProps {
 const globalTitle = '무비로그';
 
 const Head: React.FC<HeadProps> = ({ children, title }) => {
+  console.log(title);
   return (
-    <NextHead>
+    <Helmet>
       <title>{title ? `${title} | ${globalTitle}` : globalTitle}</title>
       {children}
-    </NextHead>
+    </Helmet>
   );
 };
 

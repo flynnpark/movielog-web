@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 type MovieCardProps = {
@@ -8,7 +8,7 @@ type MovieCardProps = {
 
 const MovieCard: React.FC<MovieCardProps> = ({ id, title, imageSrc }) => {
   return (
-    <Link href={`/movies/${id}`} passHref={true}>
+    <Link to={`/movies/${id}`}>
       <MovieCardContainer>
         <MoviePosterPlacer>
           <MoviePosterContainer>

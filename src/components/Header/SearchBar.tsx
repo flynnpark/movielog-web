@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { BsSearch } from 'react-icons/bs';
 import { VscClose } from 'react-icons/vsc';
 
 const SearchBar: React.FC = () => {
-  const router = useRouter();
+  const history = useHistory();
   const [term, setTerm] = useState<string>('');
 
   const handleChange = useCallback(
@@ -17,9 +17,13 @@ const SearchBar: React.FC = () => {
   const handleSearch = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      router.push({ pathname: '/search', query: { q: term } });
+      history.push({
+        pathname: '/search',
+        search: `?q=${term}`,
+        state: { some: 'state' },
+      });
     },
-    [term]
+    [history, term]
   );
 
   const handleReset = useCallback(

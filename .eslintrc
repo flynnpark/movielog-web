@@ -1,15 +1,15 @@
 {
-  "extends": [
-    "airbnb",
-    "prettier",
-    "plugin:jest/recommended",
-    "plugin:react/recommended",
-    "plugin:import/typescript",
-    "prettier/react"
-  ],
+  "extends": ["react-app", "react-app/jest", "plugin:react/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["markdown", "react", "babel", "jest", "@typescript-eslint", "react-hooks", "unicorn"]
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ]
 }

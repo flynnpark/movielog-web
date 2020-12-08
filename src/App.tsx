@@ -1,26 +1,20 @@
 import React, { useState } from 'react';
-import { AppProps } from 'next/app';
+import Router from 'routes';
 import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from 'styles/themes';
 import GlobalStyle from 'styles/GlobalStyle';
-import Header from 'components/Header';
+import { lightTheme, darkTheme } from 'styles/themes';
 
 type ThemeType = 'light' | 'dark';
 
-const MovieLogApp = (props: AppProps): JSX.Element => {
-  const { Component, pageProps } = props;
-
+const App: React.FC = () => {
   const [theme, setTheme] = useState<ThemeType>('light');
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
-      <Header />
-      <main>
-        <Component {...pageProps} />
-      </main>
+      <Router />
     </ThemeProvider>
   );
 };
 
-export default MovieLogApp;
+export default App;
